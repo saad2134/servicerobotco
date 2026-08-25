@@ -1,0 +1,587 @@
+/* Service Robot Co. Global Stylesheet - Vanilla CSS Theme Overrides */
+
+:root {
+  --primary-green: #11361F;       /* Deep Forest Green */
+  --primary-green-light: #205C38; /* Medium-Light Green */
+  --primary-green-dark: #071D10;  /* Very Dark Green */
+  --accent-bronze: #8B6E3C;       /* Metallic/Warm Muted Bronze */
+  --accent-bronze-light: #A38652; /* Lighter Accent Bronze */
+  --accent-bronze-dark: #634C24;  /* Darker Accent Bronze */
+  
+  --bg-cream: #FCFAF7;            /* Base warm cream card/paper bg */
+  --bg-cream-dark: #F4F1E9;       /* Secondary cream sections */
+  --text-dark: #19201C;           /* Rich charcoal/almost black */
+  --text-gray: #4A5650;           /* Slate grey/secondary body text */
+  --text-light: #FCFAF7;          /* Plain white for dark sections */
+  
+  --border-color: #DFDBD0;        /* Subtle paper dividers */
+  --border-color-dark: #C2BDAF;   /* Darker paper dividers */
+  
+  --shadow-subtle: 0 4px 12px rgba(27, 43, 33, 0.05);
+  --shadow-premium: 0 12px 36px rgba(27, 43, 33, 0.08);
+  --shadow-card: 0 20px 45px rgba(27, 43, 33, 0.12);
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-fast: all 0.15s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-cream: #0B120E;            /* Very dark green-black */
+    --bg-cream-dark: #121C16;       /* Slightly lighter dark green */
+    --text-dark: #F7FAF8;           /* Off-white */
+    --text-gray: #B2C0B8;           /* Muted green-grey */
+    --border-color: #24352B;        /* Dark green dividers */
+    --border-color-dark: #374E40;   /* Muted gold/green dividers */
+  }
+}
+
+/* Base resets and overrides */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans), sans-serif !important;
+}
+
+body {
+  color: var(--text-dark) !important;
+  background-color: var(--bg-cream) !important;
+  font-family: var(--font-sans), sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Customizations */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), Georgia, serif !important;
+  font-weight: 700 !important;
+  color: var(--primary-green);
+  letter-spacing: -0.015em !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3, h4, h5, h6 {
+    color: #E2EAE5 !important;
+  }
+}
+
+/* Live Website Element Overrides (Tailwind Override Layer) */
+
+/* Nav & Backgrounds */
+.bg-background, 
+main.bg-background, 
+div.bg-background, 
+section.bg-background {
+  background-color: var(--bg-cream) !important;
+}
+
+.bg-muted, 
+div.bg-muted, 
+section.bg-muted {
+  background-color: var(--bg-cream-dark) !important;
+}
+
+nav.bg-background {
+  background-color: rgba(252, 250, 247, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  nav.bg-background {
+    background-color: rgba(11, 18, 14, 0.9) !important;
+  }
+}
+
+/* Nav text contrast overrides on scroll states */
+nav.bg-transparent .text-white,
+nav.bg-transparent a,
+nav.bg-transparent span {
+  color: #FFFFFF !important;
+}
+
+nav.bg-background .text-white,
+nav.bg-background a,
+nav.bg-background span {
+  color: var(--text-dark) !important;
+}
+
+/* Standard pure CSS hover dropdowns to ensure 100% dropdown menu reliability */
+li.group:hover .group-hover\:visible,
+li.group:hover div[aria-label*="menu"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Dropdown sub-menu content legibility overrides (ensuring links are fully readable green/charcoal) */
+div[aria-label*="menu"] a, 
+div[aria-label*="menu"] span, 
+div[aria-label*="menu"] li,
+div[aria-label*="menu"] p {
+  color: var(--text-dark) !important;
+}
+
+div[aria-label*="menu"] a:hover {
+  background-color: var(--bg-cream-dark) !important;
+  color: var(--primary-green) !important;
+}
+
+/* Borders and Dividers */
+.border-border {
+  border-color: var(--border-color) !important;
+}
+
+.divide-border > * + * {
+  border-color: var(--border-color) !important;
+}
+
+/* Text coloring overrides */
+.text-foreground,
+.text-ink {
+  color: var(--text-dark) !important;
+}
+
+.text-light-gray,
+.text-muted-foreground {
+  color: var(--text-gray) !important;
+}
+
+/* Buttons and Links */
+.bg-accent,
+[data-slot="button"].bg-accent,
+a.bg-accent {
+  background-color: var(--primary-green) !important;
+  border-color: var(--primary-green) !important;
+  color: var(--bg-cream) !important;
+  border-radius: 2px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+  transition: var(--transition-smooth) !important;
+  box-shadow: var(--shadow-subtle) !important;
+}
+
+.bg-accent:hover,
+[data-slot="button"].bg-accent:hover,
+a.bg-accent:hover {
+  background-color: var(--accent-bronze) !important;
+  border-color: var(--accent-bronze) !important;
+  color: #FFFFFF !important;
+}
+
+/* Anchor styling and interactions */
+a:hover {
+  color: var(--primary-green-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  a:hover {
+    color: var(--accent-bronze-light);
+  }
+}
+
+/* Dropdown menus customization */
+.group-hover\:visible {
+  transition: var(--transition-smooth);
+}
+
+div[aria-label*="menu"] > div {
+  background-color: var(--bg-cream) !important;
+  border-color: var(--border-color-dark) !important;
+  box-shadow: var(--shadow-premium) !important;
+  border-radius: 4px !important;
+}
+
+div[aria-label*="menu"] p {
+  color: var(--accent-bronze) !important;
+}
+
+/* Cards & Grid elements */
+.border-card,
+.bg-card {
+  background-color: var(--bg-cream) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 4px !important;
+  transition: var(--transition-smooth) !important;
+}
+
+.bg-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-premium) !important;
+  border-color: var(--accent-bronze-light) !important;
+}
+
+/* Tables comparison customization */
+table {
+  border-collapse: collapse !important;
+  background: var(--bg-cream) !important;
+}
+
+th {
+  font-family: var(--font-serif), Georgia, serif !important;
+  color: var(--primary-green) !important;
+  border-bottom: 2px solid var(--accent-bronze) !important;
+  padding: 1rem !important;
+}
+
+td {
+  border-bottom: 1px solid var(--border-color) !important;
+  padding: 1rem !important;
+  color: var(--text-dark) !important;
+}
+
+tr:hover td {
+  background-color: var(--bg-cream-dark) !important;
+}
+
+/* Stats Layout Grid Overlap Prevention */
+.grid-cols-2.md\:grid-cols-5 {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: 2rem !important;
+  width: 100% !important;
+}
+
+/* Form controls */
+input, select, textarea {
+  border-radius: 2px !important;
+  border: 1px solid var(--border-color-dark) !important;
+  background-color: var(--bg-cream) !important;
+  color: var(--text-dark) !important;
+  transition: var(--transition-fast) !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent-bronze) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(139, 110, 60, 0.1) !important;
+}
+
+/* Footer overrides */
+footer {
+  border-top: 4px solid var(--accent-bronze) !important;
+  background-color: var(--primary-green-dark) !important;
+}
+
+footer * {
+  color: #E2EAE5 !important;
+}
+
+footer a:hover {
+  color: #FFFFFF !important;
+  text-decoration: underline !important;
+}
+
+/* FAQ toggles */
+.faq-question {
+  cursor: pointer;
+}
+
+/* Animation & Hydration Force-Visibility overrides for inline opacity-0 contents */
+[style*="opacity: 0"],
+[style*="opacity:0"] {
+  opacity: 1 !important;
+}
+
+[style*="transform"] {
+  transform: none !important;
+}
+
+/* Scoped timeline list stacking overrides for 'How We Work' section */
+div[aria-label*="How we work"] div[style*="height:700vh"],
+div[aria-label*="How we work"] div[style*="height: 700vh"] {
+  height: auto !important;
+}
+
+div[aria-label*="How we work"] .sticky {
+  position: relative !important;
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+/* Hide duplicate left status column when stacked */
+div[aria-label*="How we work"] .sticky > div:first-child {
+  display: none !important;
+}
+
+/* Setup steps container as vertical flex block */
+div[aria-label*="How we work"] .sticky > div:last-child {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: auto !important;
+  padding: 3rem 1.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2.5rem !important;
+}
+
+/* Convert absolute slides to relative stacked blocks */
+div[aria-label*="How we work"] div.absolute {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 0 !important;
+}
+
+/* Hide scroll dots menu */
+div[aria-label*="How we work"] button[aria-label*="Go to step"],
+div[aria-label*="How we work"] div[class*="translate-y-1/2"] {
+  display: none !important;
+}
+
+/* Force all Next.js lazy-load images to be visible, bypass opacity: 0 issues */
+img[data-nimg] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* --- Interactive 3D Business Card Styles --- */
+.card-scene {
+  width: 380px;
+  height: 220px;
+  perspective: 1200px;
+  cursor: pointer;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.card-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-frame.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 4px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+  background-color: #FAF8F5 !important; /* Crisp Linen White Paper color */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  
+  /* Textured linen paper finish */
+  background-image: 
+    radial-gradient(rgba(0, 0, 0, 0.01) 1px, transparent 0),
+    radial-gradient(rgba(0, 0, 0, 0.01) 1px, transparent 0);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+}
+
+.card-face * {
+  color: var(--text-dark) !important;
+}
+
+.card-face::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px solid rgba(139, 110, 60, 0.15); /* Elegant gold inner margin */
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.card-face-front {
+  transform: rotateY(0deg);
+}
+
+.card-face-back {
+  transform: rotateY(180deg);
+}
+
+.card-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-wordmark {
+  font-family: var(--font-serif), serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: var(--primary-green) !important;
+  letter-spacing: -0.01em;
+}
+
+.card-tagline {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-bronze) !important;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.card-middle {
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.card-name {
+  font-family: var(--font-serif), serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--primary-green) !important;
+  margin-bottom: 0.15rem;
+}
+
+.card-job {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-gray) !important;
+  font-weight: 600;
+}
+
+.card-footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.68rem;
+}
+
+.card-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.2rem;
+}
+
+.card-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.card-back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  gap: 1rem;
+}
+
+.card-qr-container {
+  background: #FFF;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.card-back-details {
+  font-size: 0.75rem;
+  color: var(--primary-green) !important;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.card-back-details div {
+  color: var(--accent-bronze) !important;
+}
+
+/* Dedicated Print Layout for Business Card - Forces exactly 1 page printout with zero trailing blanks */
+@media print {
+  /* Hide page elements, headers, footers, and screen controls completely from layout */
+  header, footer, .no-print, nav, main > *:not(.print-page-container), .no-print * {
+    display: none !important;
+  }
+
+  body, html, main, .print-page-container {
+    background: #FFF !important;
+    color: #000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  /* Display and size the print layout container */
+  .print-only-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .print-card-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+
+  /* Force cards to exactly 3.5in x 2in layout size */
+  .print-scene-layout {
+    width: 3.5in !important;
+    height: 2in !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-inside: avoid !important;
+  }
+
+  .static-frame {
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .print-scene-layout .card-face {
+    position: relative !important;
+    width: 3.5in !important;
+    height: 2in !important;
+    box-shadow: none !important;
+    border: 1px solid #11361F !important;
+    background: #FCFAF7 !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+    padding: 0.2in !important;
+  }
+
+  .print-scene-layout .card-face-back {
+    transform: none !important;
+  }
+}
+
+/* Responsive Overrides */
+@media (max-width: 600px) {
+  .card-scene {
+    width: 310px;
+    height: 180px;
+  }
+}
