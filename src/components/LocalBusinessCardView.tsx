@@ -24,13 +24,62 @@ export default function LocalBusinessCardView() {
       </div>
 
       {/* Screen only control buttons */}
-      <div className="no-print flex gap-4 justify-center">
-        <Link href="/" className="px-6 py-2.5 rounded border border-[#11361F]/20 hover:border-[#11361F]/50 text-[#11361F] dark:text-[#E2EAE5] font-semibold transition">
+      <div className="no-print flex flex-wrap gap-4 justify-center max-w-xl mx-auto mb-6">
+        <Link href="/" className="px-6 py-2.5 rounded border border-[#B4FF00]/30 hover:border-[#B4FF00] text-white font-semibold transition text-xs uppercase tracking-wider">
           ← Back to Homepage
         </Link>
-        <button onClick={() => window.print()} className="px-6 py-2.5 rounded bg-[#11361F] text-white hover:bg-[#8B6E3C] font-semibold transition">
-          🖨️ Print Card
+        <button onClick={() => window.print()} className="px-6 py-2.5 rounded bg-[#B4FF00] text-black hover:bg-[#B4FF00]/80 font-bold transition text-xs uppercase tracking-wider">
+          🖨️ Print View
         </button>
+      </div>
+
+      {/* Download Direct High-Res PNG & PDF Files */}
+      <div className="no-print bg-black/60 border border-white/10 p-6 max-w-lg w-full text-left rounded-none mb-4">
+        <h3 className="font-mono text-xs font-bold text-[#B4FF00] uppercase tracking-widest mb-3">
+          // DOWNLOAD PRINT-READY ASSETS (300 DPI)
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <a
+            href="/business-card/business-card-full-print.pdf"
+            download="ServiceRobotCo_BusinessCard_PrintSheet.pdf"
+            className="p-3 border border-white/10 bg-neutral-900 hover:border-[#B4FF00] hover:text-[#B4FF00] transition flex items-center justify-between text-white font-mono"
+          >
+            <span>Full Print Sheet (PDF)</span>
+            <span>↓</span>
+          </a>
+          <a
+            href="/business-card/business-card-front.pdf"
+            download="ServiceRobotCo_BusinessCard_Front.pdf"
+            className="p-3 border border-white/10 bg-neutral-900 hover:border-[#B4FF00] hover:text-[#B4FF00] transition flex items-center justify-between text-white font-mono"
+          >
+            <span>Front Card (PDF)</span>
+            <span>↓</span>
+          </a>
+          <a
+            href="/business-card/business-card-back.pdf"
+            download="ServiceRobotCo_BusinessCard_Back.pdf"
+            className="p-3 border border-white/10 bg-neutral-400/10 hover:border-[#B4FF00] hover:text-[#B4FF00] transition flex items-center justify-between text-white font-mono"
+          >
+            <span>Back Card (PDF)</span>
+            <span>↓</span>
+          </a>
+          <a
+            href="/business-card/business-card-front.png"
+            download="ServiceRobotCo_BusinessCard_Front.png"
+            className="p-3 border border-white/10 bg-neutral-400/10 hover:border-[#B4FF00] hover:text-[#B4FF00] transition flex items-center justify-between text-white font-mono"
+          >
+            <span>Front Card (PNG 300DPI)</span>
+            <span>↓</span>
+          </a>
+          <a
+            href="/business-card/business-card-back.png"
+            download="ServiceRobotCo_BusinessCard_Back.png"
+            className="p-3 border border-white/10 bg-neutral-400/10 hover:border-[#B4FF00] hover:text-[#B4FF00] transition flex items-center justify-between text-white font-mono sm:col-span-2"
+          >
+            <span>Back Card (PNG 300DPI)</span>
+            <span>↓</span>
+          </a>
+        </div>
       </div>
 
       <p className="no-print mt-6 text-[10px] text-[#4A5650] dark:text-[#B2C0B8]/60">

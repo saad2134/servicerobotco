@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
@@ -27,9 +29,6 @@ export const metadata: Metadata = {
   },
 };
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
 export default function RootLayout({
   children,
 }: {
@@ -37,11 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${outfit.variable}`} style={{ scrollBehavior: "smooth" }}>
-      <head>
-        {/* Dynamic Tailwind compilation to restore exact layout grid, flex boxes, and alignments */}
-        <script src="https://cdn.tailwindcss.com" async></script>
-      </head>
-      <body style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }} className="bg-[#FCFAF7] dark:bg-[#0B120E] text-[#19201C] dark:text-[#F7FAF8]">
+      <body style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}>
         <Header />
         <main className="min-h-screen">
           {children}
