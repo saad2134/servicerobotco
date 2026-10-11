@@ -1,6 +1,6 @@
 # Modern Website for Service Robot Co.
 
-Service Robot Co. is a robotics integration and automation website for businesses looking to deploy autonomous cleaning, delivery, and security robots through a Robotics-as-a-Service (RaaS) model. The project presents the company's services, industries served, deployment process, and lead-generation flow for prospects evaluating automation.
+Service Robot Co. is a robotics integration and automation website for businesses looking to deploy autonomous cleaning, delivery, and security robots through a Robotics-as-a-Service (RaaS) model. [...]
 
 ## Overview
 
@@ -109,8 +109,8 @@ npm run lint
 
 ## Notes
 
-This repository contains both the live site source and supplementary marketing assets for brand campaigns, including business cards and social content. The project is designed as a marketing and lead-generation experience for industrial robotics and automation services.
+This repository contains both the live site source and supplementary marketing assets for brand campaigns, including business cards and social content. The project is designed as a marketing and [...]
 
 ## License
 
-This project is currently private and is intended for internal brand and client-facing use.
+The design and code for this website are open-source and available for use, modification, and distribution. However, the intellectual property of Service Robot Co., including but not limited to company branding, proprietary business logic, service offerings, and confidential strategic assets, remain the exclusive property of Service Robot Co. and are not available for commercial reuse.
