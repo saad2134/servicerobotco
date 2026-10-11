@@ -1,4 +1,4 @@
-# Service Robot Co.
+# Modern Website for Service Robot Co.
 
 Service Robot Co. is a robotics integration and automation website for businesses looking to deploy autonomous cleaning, delivery, and security robots through a Robotics-as-a-Service (RaaS) model. The project presents the company's services, industries served, deployment process, and lead-generation flow for prospects evaluating automation.
 
@@ -15,7 +15,7 @@ The application is a modern Next.js marketing site built to showcase:
 
 ## Live site
 
-- Production: https://servicerobotco-seven.vercel.app
+- Showcase: https://servicerobotco-seven.vercel.app
 
 ## Tech stack
 
